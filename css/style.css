@@ -283,10 +283,15 @@ header ul li:before {
   font-size: 90px;
   color: #c78030;
 }
+.content .timer-numbers #day {
+  margin-top: 40px;
+  font-size: 70px;
+  color: #c78030;
+}
 .content .timer-numbers:after {
   content: '';
   display: block;
-  width: 20%;
+  width: 40%;
   height: 1px;
   background-color: #c78030;
   margin: 0 auto;
