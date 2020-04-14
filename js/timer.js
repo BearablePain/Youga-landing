@@ -1,4 +1,4 @@
-let deadline = '2020-04-13'; //Указываем конечное время нашего таймера
+let deadline = '2020-04-20'; //Указываем конечное время нашего таймера
 
 //Узнать промежуток времени между настоящим временем и дедлайном и парсим дату
 function getTimeRemaining(endTime) { //В параметры передаем дедлайн
@@ -37,7 +37,6 @@ function setClock(id, endTime) {
 	let timeInterval = setInterval(updateClock, 1000);
 	//Записываем значения
 	//Парсим дату и записываем значение
-	console.log(seconds.length)
 
 	function updateClock() {
 		//каждый раз как вызывается эта функция мы 
@@ -48,7 +47,7 @@ function setClock(id, endTime) {
 		minutes.textContent = t.minutes; //минуты
 		seconds.textContent = t.seconds; //секунды
 		days.textContent = t.days;
-		//Добавляем ноль когда секунд,минут,часов меньше дясяти
+		//Добавляем ноль, когда секунд,минут,часов меньше дясяти
 		if (t.seconds < 10) {
 			seconds.textContent = '0' + t.seconds;
 		}

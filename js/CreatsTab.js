@@ -1,6 +1,6 @@
 //Ждем загрузку все элементов на странице и переводим в строгий режим 
 //Ждать загрузку можно множеством способов(например написать defer)
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   //Получаем жлементы
@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   //создаем  обработчик события
-  info.addEventListener('click', function (event) {
+  info.addEventListener('click', (event) => {
     let target = event.target; //Для удобства создаю переменню для таргета
     if (target && target.classList.contains('info-header-tab')) { //делегируем событие
       // определяем  что наш меню-таб свзян с табконтентом через цикл
