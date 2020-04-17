@@ -17,16 +17,16 @@ class Btn {
     open() {
         if (this.name.length == undefined) { //проверяем одна кнопка или нет
             this.name.addEventListener('click', () => {
-                overlay.style.display = 'block '; //Принимаем блочную модель 
-                this.classList.add('more-splash'); //Добавляем анимацию
+                overlay.style.display = 'block'; //Принимаем блочную модель 
+                this.name.classList.add('more-splash'); //Добавляем анимацию
                 document.body.style.overflow = 'hidden'; //Запрещаем скролить пока не закроем окно
             });
         }
 
-        for (let i = 0; i < this.name.length; i++) { //Запускаем цикл для массива конопок
+        for (let i = 0; i < this.name.length; i++) { //Запускаем цикл для массива кнопок
             this.name[i].addEventListener('click', () => {
-                overlay.style.display = 'block ';
-                this.classList.add('more-splash');
+                overlay.style.display = 'block';
+                this.name[i].classList.add('more-splash');
                 document.body.style.overflow = 'hidden';
             });
         }
@@ -37,7 +37,7 @@ class Btn {
     close() {
         this.name.addEventListener('click', () => {
             overlay.style.display = 'none'; ////Убиарем классы 
-            this.classList.remove('more-splash'); //Убираем анимацию
+            this.name.classList.remove('more-splash'); //Убираем анимацию
             document.body.style.overflow = ''; //Запрещаем скролить пока не закроем окно
         });
     }
