@@ -1,4 +1,6 @@
-let deadline = '2020-04-20'; //Указываем конечное время нашего таймера
+function createTimer () {
+
+let deadline = '2020-04-22'; //Указываем конечное время нашего таймера
 
 //Узнать промежуток времени между настоящим временем и дедлайном и парсим дату
 function getTimeRemaining(endTime) { //В параметры передаем дедлайн
@@ -68,3 +70,6 @@ function setClock(id, endTime) {
 }
 
 setClock('timer', deadline);
+}
+
+module.exports = createTimer;

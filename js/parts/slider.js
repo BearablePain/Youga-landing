@@ -1,3 +1,5 @@
+function createSlider () {
+
 let slideIndex = 1, //Указываем параметр текущего слайда 
 	slides = document.querySelectorAll('.slider-item'),
 	prev = document.querySelector('.prev'),
@@ -60,3 +62,6 @@ dotsWrap.addEventListener('click', (event) => {
 		}
 	}
 });
+}
+
+module.exports = createSlider;
