@@ -1,61 +1,63 @@
 function createModal() {
+  let more = document.querySelector('.more'),
+      //кнопка для вызова модального окна
+  overlay = document.querySelector('.overlay'),
+      //модальное окно
+  shut = document.querySelector('.popup-close'),
+      //крестик
+  arrTabBtn = document.querySelectorAll('.description-btn'); //массив кнопок
+  // arrTabBtn.document.push(more);
+  //конструктор конопки
 
-	let more = document.querySelector('.more'), //кнопка для вызова модального окна
-		overlay = document.querySelector('.overlay'), //модальное окно
-		shut = document.querySelector('.popup-close'), //крестик
-		arrTabBtn = document.querySelectorAll('.description-btn'); //массив кнопок
+  class Btn {
+    constructor(name) {
+      this.name = name;
+    } //Вызов модального окна
 
 
-	// arrTabBtn.document.push(more);
-	//конструктор конопки
+    open() {
+      if (this.name.length == undefined) {
+        //проверяем одна кнопка или нет
+        this.name.addEventListener('click', () => {
+          overlay.style.display = 'block'; //Принимаем блочную модель 
 
-	class Btn {
-		constructor(name) {
-			this.name = name;
-		}
+          this.name.classList.add('more-splash'); //Добавляем анимацию
 
-		//Вызов модального окна
+          document.body.style.overflow = 'hidden'; //Запрещаем скролить пока не закроем окно
+        });
+      }
 
-		open() {
-			if (this.name.length == undefined) { //проверяем одна кнопка или нет
-				this.name.addEventListener('click', () => {
-					overlay.style.display = 'block'; //Принимаем блочную модель 
-					this.name.classList.add('more-splash'); //Добавляем анимацию
-					document.body.style.overflow = 'hidden'; //Запрещаем скролить пока не закроем окно
-				});
-			}
+      for (let i = 0; i < this.name.length; i++) {
+        //Запускаем цикл для массива кнопок
+        this.name[i].addEventListener('click', () => {
+          overlay.style.display = 'block';
+          this.name[i].classList.add('more-splash');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+    } // //закрытие модального окна
 
-			for (let i = 0; i < this.name.length; i++) { //Запускаем цикл для массива кнопок
-				this.name[i].addEventListener('click', () => {
-					overlay.style.display = 'block';
-					this.name[i].classList.add('more-splash');
-					document.body.style.overflow = 'hidden';
-				});
-			}
-		}
 
-		// //закрытие модального окна
+    close() {
+      this.name.addEventListener('click', () => {
+        overlay.style.display = 'none'; ////Убиарем классы 
 
-		close() {
-			this.name.addEventListener('click', () => {
-				overlay.style.display = 'none'; ////Убиарем классы 
-				this.name.classList.remove('more-splash'); //Убираем анимацию
-				document.body.style.overflow = ''; //Запрещаем скролить пока не закроем окно
-			});
-		}
-	}
+        this.name.classList.remove('more-splash'); //Убираем анимацию
 
-	// создаем кнопки 
+        document.body.style.overflow = ''; //Запрещаем скролить пока не закроем окно
+      });
+    }
 
-	let openModalBtnTimer = new Btn(more),
-		closerOpenModal = new Btn(shut),
-		openModalBtnContentArr = new Btn(arrTabBtn);
+  } // создаем кнопки 
 
-	//вызываем нужные методы для кнопок
 
-	openModalBtnTimer.open();
-	openModalBtnContentArr.open();
-	closerOpenModal.close();
+  let openModalBtnTimer = new Btn(more),
+      closerOpenModal = new Btn(shut),
+      openModalBtnContentArr = new Btn(arrTabBtn); //вызываем нужные методы для кнопок
+
+  openModalBtnTimer.open();
+  openModalBtnContentArr.open();
+  closerOpenModal.close();
 }
 
 module.exports = createModal;
